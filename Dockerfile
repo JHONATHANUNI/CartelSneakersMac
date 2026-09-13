@@ -1,11 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY ["UrbanKicksMac/UrbanKicksMac.csproj", "UrbanKicksMac/"]
-RUN dotnet restore "UrbanKicksMac/UrbanKicksMac.csproj"
+COPY ["UrbanKicksMac.csproj", "./"]
+RUN dotnet restore "UrbanKicksMac.csproj"
 
 COPY . .
-WORKDIR "/src/UrbanKicksMac"
 RUN dotnet publish "UrbanKicksMac.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
