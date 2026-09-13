@@ -1,0 +1,18 @@
+@model CheckoutViewModel
+@{
+    ViewData["Title"] = "Confirmando pedido";
+}
+
+<section class="auth-page">
+    <div class="auth-panel checkout-panel">
+        <p class="eyebrow">REDIRIGIENDO</p>
+        <h1>Tu pedido está listo.</h1>
+        <p>Se abrirá WhatsApp para confirmar el pedido con el mensaje generado.</p>
+        <a class="button button-dark" href="@Model.WhatsAppUrl" target="_blank" rel="noopener">Abrir WhatsApp</a>
+        <a class="button button-light" asp-controller="Home" asp-action="Index">Seguir comprando</a>
+    </div>
+</section>
+
+<script>
+  window.open('@Html.Raw(Model.WhatsAppUrl)', '_blank', 'noopener');
+</script>

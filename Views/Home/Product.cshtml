@@ -1,0 +1,23 @@
+@model Product
+@{ ViewData["Title"] = Model?.Name ?? "Producto"; }
+@if (Model is null) { <section class="empty-state"><h1>Producto no encontrado.</h1></section> } else { <section class="detail"><div class="detail-image"><img src="~/images/@Model.ImageUrl" alt="@Model.Name" /></div><div class="detail-info"><p class="eyebrow">@Model.Brand / SELECTED PAIR</p><h1>@Model.Name</h1><p class="detail-price">₹@Model.Price.ToString("N0")</p><p class="detail-description">@Model.Description</p><form asp-controller="Cart" asp-action="Add" method="post" class="cart-form" id="size-form"><input type="hidden" name="id" value="@Model.Id" /><label for="size">Selecciona tu talla</label><div class="select-wrap"><select id="size" name="size" required aria-required="true"><option value="" selected disabled>Elige una talla</option><option>UK 5</option><option>UK 6</option><option>UK 7</option><option>UK 8</option><option>UK 9</option><option>UK 10</option></select></div>@if (!string.IsNullOrWhiteSpace(ViewBag.CartError as string)) { <span class="inline-form-note">@ViewBag.CartError</span> }<button class="button button-dark" type="submit">Agregar al carrito <span>↗</span></button></form><script>
+    const form = document.getElementById('size-form');
+    const sizeInput = document.getElementById('size');
+    const note = document.querySelector('.inline-form-note');
+    if (form && sizeInput) {
+      form.addEventListener('submit', function (event) {
+        if (!sizeInput.value) {
+          event.preventDefault();
+          if (note) {
+            note.textContent = 'Selecciona una talla antes de continuar.';
+          } else {
+            const msg = document.createElement('span');
+            msg.className = 'inline-form-note';
+            msg.textContent = 'Selecciona una talla antes de continuar.';
+            form.appendChild(msg);
+          }
+          sizeInput.focus();
+        }
+      });
+    }
+</script></div></section> }

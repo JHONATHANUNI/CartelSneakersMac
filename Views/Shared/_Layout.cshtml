@@ -1,0 +1,49 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] | CartelSneakers</title>
+    <meta name="description" content="CartelSneakers: street culture and selected urban footwear." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/png" href="~/images/cartel-sneakers-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/pages.css" />
+    <link rel="stylesheet" href="~/css/brand.css" />
+    <link rel="stylesheet" href="~/css/store.css" />
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" asp-controller="Home" asp-action="Index"><img src="~/images/cartel-sneakers-logo.png" alt="CartelSneakers" /> <span>CARTEL SNEAKERS</span></a>
+    <nav class="main-nav" aria-label="Navegación principal">
+        <a asp-controller="Home" asp-action="Index">Shop</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-brand="Nike">Nike</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-brand="Adidas">Adidas</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-brand="Asics">Asics</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-brand="Converse">Converse</a>
+    </nav>
+    <div class="header-actions">
+        @if (User.Identity?.IsAuthenticated == true) { <a href="/account/logout">Hola, @User.Identity.Name</a> } else { <a asp-controller="Account" asp-action="Login" aria-label="Iniciar sesión">Cuenta</a> }
+        <a class="bag-link" asp-controller="Cart" asp-action="Index">Bolsa <sup>@Context.Session.GetCart().Sum(x => x.Quantity)</sup></a>
+    </div>
+</header>
+<main>@RenderBody()</main>
+<div class="quick-actions">
+    <a class="quick-fab cart" asp-controller="Cart" asp-action="Index" aria-label="Ir al carrito">
+        👜
+        @if (Context.Session.GetCart().Sum(x => x.Quantity) > 0)
+        {
+            <span class="count">@Context.Session.GetCart().Sum(x => x.Quantity)</span>
+        }
+    </a>
+    <a class="quick-fab whatsapp" href="https://wa.me/@(Configuration["WhatsAppSettings:PhoneNumber"] ?? "")" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">💬</a>
+</div>
+<footer class="site-footer"><div><a class="brand" asp-controller="Home" asp-action="Index"><img src="~/images/cartel-sneakers-logo.png" alt="CartelSneakers" /> <span>CARTEL SNEAKERS</span></a><p>Street culture, selected with intent.</p></div><div class="footer-links"><a href="/home/about">About</a><a href="/home/shipping">Shipping</a><a href="/home/privacy">Privacy</a></div><small>© 2026 CartelSneakers</small></footer>
+@RenderSection("Scripts", required: false)
+</body>
+</html>
