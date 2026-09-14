@@ -73,6 +73,44 @@ body {
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
 }
 
+.brand-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  margin-top: 1rem;
+}
+
+.brand-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1.5rem;
+}
+
+.brand-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.brand-section-head h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.brand-section-head a {
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.product-grid.compact {
+  grid-template-columns: repeat(4, minmax(230px, 1fr));
+}
+
 .detail {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
