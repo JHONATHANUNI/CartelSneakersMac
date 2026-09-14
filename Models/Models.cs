@@ -111,6 +111,10 @@ public static class ProductCatalog
         new() { Id = 76, Name = "Supernova Rise 2 White Royal Blue", Brand = "Adidas", Price = 159900, Description = "Estilo running limpio y clásico en color blanco con acentos y las tres franjas icónicas en azul rey.", ImageUrl = "900A.jpg", ImageUrl2 = "900A-alt.jpg" },
         new() { Id = 77, Name = "Supernova Rise 2 White Sun Yellow", Brand = "Adidas", Price = 159900, Description = "Zapatilla deportiva en tono gris claro y blanco con franjas y degrada de suela en llamativo amarillo solar.", ImageUrl = "902A.jpg", ImageUrl2 = "902A-alt.jpg" },
 
+
+
+
+
         new() { Id = 78, Name = "LV Trainer Sneaker White & Black Accent", Brand = "Louis Vuitton", Price = 159900, Description = "Diseño de lujo en cuero premium blanco con detalles de marcos bordados y parches del logo LV en tono negro.", ImageUrl = "00001.jpg", ImageUrl2 = "00001-alt.jpg" },
         new() { Id = 79, Name = "Nike Sportswear Padded Slide Black", Brand = "Nike", Price = 159900, Description = "Chancla acolchada de estilo confort en color negro con ajuste por cordón elástico lateral y etiqueta Nike Sportswear.", ImageUrl = "01.jpg", ImageUrl2 = "01-alt.jpg" },
         new() { Id = 80, Name = "9060 Beige & Olive Green", Brand = "New Balance", Price = 159900, Description = "Silueta futurista en tonos beige, arena y verde oliva con paneles de gamuza y suela volumétrica tridimensional.", ImageUrl = "00002.jpg", ImageUrl2 = "00002-alt.jpg" },
