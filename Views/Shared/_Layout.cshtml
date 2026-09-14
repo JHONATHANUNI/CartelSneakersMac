@@ -24,8 +24,10 @@
         <a asp-controller="Home" asp-action="Index">Shop</a>
         <a asp-controller="Home" asp-action="Index" asp-route-brand="Nike">Nike</a>
         <a asp-controller="Home" asp-action="Index" asp-route-brand="Adidas">Adidas</a>
-        <a asp-controller="Home" asp-action="Index" asp-route-brand="Asics">Asics</a>
-        <a asp-controller="Home" asp-action="Index" asp-route-brand="Converse">Converse</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-brand="Louis Vuitton">Louis Vuitton</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-brand="On Cloud">On Cloud</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-brand="New Balance">New Balance</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-brand="Skechers">Skechers</a>
     </nav>
     <div class="header-actions">
         @if (User.Identity?.IsAuthenticated == true) { <a href="/account/logout">Hola, @User.Identity.Name</a> } else { <a asp-controller="Account" asp-action="Login" aria-label="Iniciar sesión">Cuenta</a> }
