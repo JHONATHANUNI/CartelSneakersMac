@@ -59,6 +59,11 @@ public static class ProductCatalog
         new() { Id = 30, Name = "Duramo Speed Black & Solar Orange", Brand = "Adidas", Price = 159900, Description = "Diseño dinámico en base negra con llamativos detalles y acentos en naranja vibrante.", ImageUrl = "892A.jpg", ImageUrl2 = "892A.jpg" },
         new() { Id = 31, Name = "Air Force 1 Low Black & Purple Stitch", Brand = "Nike", Price = 159900, Description = "Edición especial en cuero negro con costuras blancas acentuadas, forro interno morado y swoosh de charol.", ImageUrl = "3695.jpg", ImageUrl2 = "3695.jpg" }
 
+
+
+
+
+
     ];
 
     public static List<Product> GetAll() => Products;
